@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Oskar Domingos">
+  <meta name="description" content="Web Application to learn foreign words">
+  <meta name="keywords" content="Foreign Languages, words">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#3d4d9c">
+  <!--  tutaj dodaj logo-->
+  <link rel="icon" sizes="48x48" href="images/logo48x48.png">
+  <link rel="icon" sizes="96x96" href="images/logo96x96.png">
+  <link rel="icon" sizes="192x192" href="images/logo192x192.png">
+  <link rel="icon" sizes="288x288" href="images/logo288x288.png">
+
+  <link rel="apple-touch-icon" sizes="120x120" href="images/logo120x120-iphone2-white-theme.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/logo180x180-iphone-white-theme.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="images/logo152x152-ipad-white-theme.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="images/logo167x167-ipadpro-white-theme.png">
+  <link rel="apple-touch-startup-image" href="images/logo180x180-iphone-white-theme.png">
+  <meta name="apple-mobile-web-app-title" content="Lingu">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#3d4d9c">
+
+  <link rel="manifest" href="./manifest.json">
+  <link rel="stylesheet" type="text/css" href="styles/style.css">
+  <title>Lingu</title>
+</head>
+
+<body>
+  <!--control panel-->
+  <nav class="header">
+    <button class="button header__menu-button" id="menu-button">
+      <hr>
+      <hr>
+      <hr>
+    </button>
+    <button class="button header__add-button" id="add-dialog-button"></button>
+    <div class="menu menu_hidden">
+      <!--Tutaj wprowadzam nowe zmiany-->
+      <ul class="list menu__option-list">
+        <h2 class="menu__list-title">Opcje</h2>
+        <li class="menu__list-element"><a href="#words-mode" class="menu__list-link" id="words-mode">słówka</a></li>
+        <li class="menu__list-element"><a href="#learn-mode" class="menu__list-link" id="learn-mode">Tryb nauki</a></li>
+      </ul>
+      <!-- powyżej nowe zmiany -->
+      <ul class="list menu__group-list">
+        <h2 class="menu__list-title">Grupy</h2>
+        <li class="menu__list-element"><a href="#wszystkie" class="menu__list-link" id="all-cards">Wszystkie</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!--main container-->
+  <main class="container container_hidden" id="container">
+    <div class="card card-template card-template_hidden">
+      <div class="card__word card__word_visible">
+        <p></p>
+      </div>
+      <div class="card__translation card__translation_hidden">
+        <p></p>
+      </div>
+    </div>
+    <div class="game-board game-board_hidden">
+      <input type="text">
+      <button class="button game-board__button"></button>
+    </div>
+  </main>
+  <div class="modal-container">
+    <div class="add-card-modal add-card-modal_hidden">
+      <div class="add-card-modal__body">
+        <label for="word">Słówko</label>
+        <input type="text" class="add-card-modal__input" id="word">
+        <label for="translation">Tłumaczenie</label>
+        <input type="text" class="add-card-modal__input" id="translation">
+
+        <div class="add-card-modal__grouping-section">
+          <div>
+            <input type="checkbox" name="createGroup" value="true" id="create-group-checkbox">
+            <label for="create-group-checkbox">Dodaj do grupy</label>
+          </div>
+          <div hidden class="add-card-modal__groups-panel">
+            <label for="groups">Grupa</label>
+            <select name="groups" id="groups">
+              <option value="nowa">nowa</option>
+            </select>
+            <input type="text" class="add-card-modal__input" id="new-group-input">
+          </div>
+        </div>
+      </div>
+      <div class="add-card-modal__buttons">
+        <button class="button add-card-modal__add-button" id="add-card-button">dodaj</button>
+        <button class="button add-card-modal__close-button" id="close-container-button">zamknij</button>
+      </div>
+    </div>
+  </div>
+  <div class="modal-container">
+    <div class="remove-card-modal remove-card-modal_hidden">
+      <button class="button remove-card-modal__remove-button">Usuń</button>
+      <button class="button remove-card-modal__leave-word-button">Zostaw</button>
+    </div>
+  </div>
+  <div class="loader">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <script src="scripts/localforage.min.js"></script>
+  <script src="scripts/app.js"></script>
+</body>
+
+</html>
